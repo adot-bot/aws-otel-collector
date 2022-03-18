@@ -42,7 +42,7 @@ This example will introduce how to use AWS-OTel-Collector to send application tr
 5. Choose **Attach policies**.
 
 #### Deploy AWSOTelCollector on Amazon EKS as sidecar
-The easiest way to deploy AWSOTelCollector on Amazon EKS is to run it as a sidecar, defining it in the same task definition as your application.
+The easiest way to deploy AWSOTelCollector on Amazon EKS is to run it as a sidecar, defining it in the same pod definition as your application.
 
 1. Create a Kubernetes namespace.
 ```bash
@@ -76,4 +76,4 @@ kubectl -n aws-otel-eks describe deployment aws-otel-eks-sidecar
 The example template provided runs the AWS-OTel-Collector as sidecar to send application metrics and traces on Amazon EKS. We run two applications: the customer’s application (`aws-otel-emitter`) and the AWSOTelCollector `aws-otel-collector`. Running the AWSOTelCollector in the same application as the main application allows the AWSOTelCollector to collect the metric/trace data for the customer’s application. We also call running the AWSOTelCollector in this way a "Sidecar". 
 
 **View Your Metrics**  
-You should now be able to view your metrics in your [CloudWatch console](https://console.aws.amazon.com/cloudwatch/). In the navigation bar, click on **Metrics**. The collected AWSOTelCollector metrics can be found in the **AWSObservability/CloudWatchOTService** namespace. Ensure that your region is set to the region set for your cluster.
+You should now be able to view your metrics in your [CloudWatch console](https://console.aws.amazon.com/cloudwatch/). In the navigation bar, click on **Metrics**. The collected AWSOTelCollector metrics can be found in the **AWSObservability/CloudWatchEKSService** namespace. Ensure that your region is set to the region set for your cluster.
